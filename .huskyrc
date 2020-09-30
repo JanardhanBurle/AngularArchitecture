@@ -1,0 +1,7 @@
+{
+	"hooks": {
+		"commit-msg": "commitlint --config commitlint.config.js -E HUSKY_GIT_PARAMS",
+		"pre-commit": "export FORCE_COLOR=1 && lint-staged",
+		"post-merge": "post-npm-install"
+	}
+}
