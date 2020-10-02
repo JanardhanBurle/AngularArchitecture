@@ -3,11 +3,17 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
+    "start": "npm run pre-start & ng serve",
+    "build": "npm run pre-build & ng build --prod --aot --base-href=/angular-architecture/",
+    "test-ci": "ng test --watch=false",
+    "e2e:ci": "ng e2e --protractor-config=e2e/protractor-ci.conf.js",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "remove-unused-import": "node ./node_modules/tslint/bin/tslint --config tslint-imports.json --fix --project.",
+    "e2e": "ng e2e",
+    "pre-start": "node hooks/pre-start",
+    "pre-build": "node hooks/pre-build",
+    "post-build": "node hooks/post-build"
   },
   "private": true,
   "dependencies": {
